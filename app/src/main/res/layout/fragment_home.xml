@@ -10,11 +10,12 @@
         android:id="@+id/textInputEditText"
         android:layout_width="248dp"
         android:layout_height="48dp"
-        android:minHeight="48dp"
-        android:layout_margin="@dimen/default_margin"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="@dimen/default_margin"
         android:background="@color/white"
         android:hint=" Search by city"
         android:inputType="text"
+        android:minHeight="48dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,16 +25,15 @@
         android:id="@+id/submit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="19dp"
         android:text="Search"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textInputEditText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textInputEditText" />
 
     <TextView
         android:id="@+id/data_city"
-        android:layout_width="418dp"
-        android:layout_height="28dp"
+        android:layout_width="412dp"
+        android:layout_height="35dp"
         android:text="Paris"
         android:textAlignment="center"
         android:theme="@style/titleStyleBlack"
@@ -61,8 +61,8 @@
 
     <ImageView
         android:id="@+id/icon_weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="129dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/data_city"
         app:layout_constraintTop_toBottomOf="@+id/sub_title"
@@ -82,4 +82,35 @@
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="@+id/data_city"
         app:layout_constraintTop_toBottomOf="@+id/icon_weather" />
+
+    <TextView
+        android:id="@+id/dev_message"
+        android:layout_width="411dp"
+        android:layout_height="29dp"
+        android:text="Cette application elle va devenir une référence suit nous."
+        android:textAlignment="center"
+        android:textColor="#dedede"
+        android:textSize="15dp"
+        android:theme="@style/defaultTextStyleBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_temp_weather"
+        app:layout_constraintVertical_bias="0.824" />
+
+    <TextView
+        android:id="@+id/dev_version"
+        android:layout_width="411dp"
+        android:layout_height="29dp"
+        android:text="Version 0.0.0.1"
+        android:textColor="#dedede"
+        android:textSize="13dp"
+        android:textAlignment="center"
+        android:theme="@style/defaultTextStyleBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_temp_weather"
+        app:layout_constraintVertical_bias="0.938" />
 </androidx.constraintlayout.widget.ConstraintLayout>
