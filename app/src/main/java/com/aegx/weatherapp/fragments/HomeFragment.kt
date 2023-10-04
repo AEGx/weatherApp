@@ -1,9 +1,11 @@
 package com.aegx.weatherapp.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -20,7 +22,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HomeFragment: Fragment() {
+class HomeFragment(): Fragment() {
 
     lateinit var weatherCity: TextView;
     lateinit var weatherDesc: TextView;
@@ -28,6 +30,7 @@ class HomeFragment: Fragment() {
     lateinit var weatherTemp: TextView
     lateinit var inputSearch: EditText
     lateinit var btnSubmit:Button
+    lateinit var  btnClearInput: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,11 +41,17 @@ class HomeFragment: Fragment() {
 
         inputSearch = view.findViewById(R.id.textInputEditText);
         btnSubmit = view.findViewById(R.id.submit_btn);
+        btnClearInput = view.findViewById(R.id.img_close_view);
 
         weatherCity = view.findViewById(R.id.data_city);
         weatherDesc = view.findViewById(R.id.sub_title);
         weatherIcon = view.findViewById(R.id.icon_weather);
         weatherTemp = view.findViewById(R.id.data_temp_weather);
+
+        btnClearInput.setOnClickListener {
+            inputSearch.text.clear();
+            it.hideKeyboard()
+        }
 
         btnSubmit.setOnClickListener {
             val city = inputSearch.text.toString();
@@ -51,6 +60,7 @@ class HomeFragment: Fragment() {
                 Toast.makeText(context, "Input your city", Toast.LENGTH_SHORT).show()
             } else {
                 getWeatherByCity(city)
+                it.hideKeyboard()
             }
         }
         getWeatherByCity("Paris");
@@ -83,5 +93,10 @@ class HomeFragment: Fragment() {
             }
 
         })
+    }
+
+    private fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }
