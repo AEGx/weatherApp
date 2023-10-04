@@ -11,9 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.aegx.weatherapp.R
-import com.aegx.weatherapp.WeatherInterface
-import com.aegx.weatherapp.WeatherService
-import com.google.gson.JsonObject
+import com.aegx.weatherapp.modals.WeatherInterface
+import com.aegx.weatherapp.services.WeatherService
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback

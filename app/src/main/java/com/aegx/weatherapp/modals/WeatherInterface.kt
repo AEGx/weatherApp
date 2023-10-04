@@ -1,4 +1,4 @@
-package com.aegx.weatherapp
+package com.aegx.weatherapp.modals
 
 data class WeatherInterface(
     var name: String,

@@ -20,7 +20,5 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentt_container, HomeFragment())
             .addToBackStack(null)
             .commit();
-
-
     }
 }
